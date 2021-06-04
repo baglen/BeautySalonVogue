@@ -1,0 +1,359 @@
+﻿<Window x:Class="BeautySalonVogue.Windows.BaseWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BeautySalonVogue.Windows"
+        mc:Ignorable="d"
+        FontFamily="Roboto Light"
+        Title="Vogue - Главное окно" Height="700" Width="1050" MinWidth="1050" MinHeight="700" 
+        WindowStartupLocation="CenterScreen" Icon="/BeautySalonVogue;component/Resources/LogoImages/vogueLogo.ico">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1">
+            <Grid VerticalAlignment="Top" Margin="0,10,0,0" Panel.ZIndex="1" Height="30">
+                <ToggleButton BorderThickness="0" Width="135" HorizontalAlignment="Right" Name="btnUserMenu" Margin="0,0,10,0">
+                    <ToggleButton.Style>
+                        <Style TargetType="ToggleButton">
+                            <Setter Property="Background" Value="#ebebeb"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#f7f7f7"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ToggleButton.Style>
+                    <Grid Width="135" HorizontalAlignment="Right" Name="userInfoGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="35"></ColumnDefinition>
+                            <ColumnDefinition ></ColumnDefinition>
+                            <ColumnDefinition Width="30"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock HorizontalAlignment="Center" FontFamily="Roboto Medium" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,2"  Name="txtLogin" Text="login" FontSize="16"></TextBlock>
+                        <Ellipse Width="26" Height="26">
+                            <Ellipse.Fill>
+                                <ImageBrush x:Name="roleImage" />
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <Image Source="/Resources/MenuImages/downArrow.png" Height="20" Grid.Column="2" Margin="0,0,5,0"></Image>
+                        <Popup IsOpen="{Binding IsChecked, ElementName=btnUserMenu}" StaysOpen="False" AllowsTransparency="True" Style="{StaticResource baseWindowPopupStyle}">
+                            <Border CornerRadius="5" Background="#60615e" BorderThickness="1" BorderBrush="White">
+                                <StackPanel Width="130" Height="auto">
+                                    <Button Name="btnProfile" Content="Профиль" Width="120" Height="30" Margin="5" BorderThickness="0" Click="btnProfile_Click"></Button>
+                                    <Button Name="btnChangePassword" Content="Сменить пароль" Width="120" Margin="0,0,0,5" Height="30" BorderThickness="0" Click="btnChangePassword_Click"></Button>
+                                    <Button Name="btnLogout" Content="Выйти" Width="120" Height="30" Margin="0,0,0,5" BorderThickness="0" Click="btnLogout_Click"></Button>
+                                </StackPanel>
+                            </Border>
+                        </Popup>
+                    </Grid>
+                </ToggleButton>
+                <Grid Width="65" HorizontalAlignment="Left" Margin="10,0,0,0">
+                    <Button Width="30" Height="30" HorizontalAlignment="Left" Name="btnBack" Click="btnBack_Click">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="#ebebeb"></Setter>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#f7f7f7"></Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Button.Style>
+                        <Button.Content>
+                            <Image Name="navArrowLeft" Source="/Resources/MenuImages/navigationArrow.png" Margin="0,0,4,0" Width="20"></Image>
+                        </Button.Content>
+                    </Button>
+                    <Button Width="30" Height="30" HorizontalAlignment="Right" Name="btnForward" Click="btnForward_Click">
+                        <Button.Style>
+                            <Style TargetType="{x:Type Button}">
+                                <Setter Property="Background" Value="#ebebeb"></Setter>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="{x:Type Button}">
+                                            <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#f7f7f7"></Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+
+                            </Style>
+                        </Button.Style>
+                        <Image Name="navArrowRight" Source="/Resources/MenuImages/navigationArrow.png" Width="20" Margin="4,0,0,0" RenderTransformOrigin="0.5,0.5">
+                            <Image.RenderTransform>
+                                <ScaleTransform ScaleX="-1"/>
+                            </Image.RenderTransform>
+                        </Image>
+                    </Button>
+                </Grid>
+            </Grid>
+            <Frame Name="baseFrame" NavigationUIVisibility="Hidden" ContentRendered="baseFrame_ContentRendered" Grid.Row="0"></Frame>
+        </Grid>
+        <Grid Grid.Column="0" Background="#ebebeb">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1" Height="60" HorizontalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="18"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="VOGUE" Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontFamily="Roboto" FontSize="30" Width="95"></TextBlock>
+                    <TextBlock Text="Салон красоты" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="12">
+                    </TextBlock>
+                </Grid>
+                <Image Source="/Resources/LogoImages/vogueLogoNoCircle.png" Grid.Column="0"/>
+            </Grid>
+            <StackPanel Grid.Row="1" Orientation="Vertical" VerticalAlignment="Center">
+                <Button Name="btnUsers" MouseEnter="btnUsers_MouseEnter" MouseLeave="btnUsers_MouseLeave" 
+                        Click="btnUsers_Click" Background="Transparent" BorderBrush="Transparent">
+                    <Button.Content>
+                        <Grid Height="auto" Width="190">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Name="imageUser" Source="/Resources/MenuImages/userInactive.png" Grid.Column="0" VerticalAlignment="Center" Width="30" HorizontalAlignment="Left"></Image>
+                            <TextBlock FontFamily="Roboto Medium"  Grid.Column="1" Text="Пользователи" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Left"></TextBlock>
+                        </Grid>
+                    </Button.Content>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#ebebeb"></Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Foreground" Value="Black"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="False">
+                                    <Setter Property="Foreground" Value="#666666"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button Name="btnRecord" MouseEnter="btnRedord_MouseEnter" MouseLeave="btnRedord_MouseLeave" 
+                        Margin="0,10,0,0"
+                        Click="btnRecord_Click" Background="Transparent" BorderBrush="Transparent">
+                    <Button.Content>
+                        <Grid Height="auto" Width="190">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Name="imageRecord" Source="/Resources/MenuImages/recordInactive.png" Grid.Column="0" VerticalAlignment="Center" Width="30" HorizontalAlignment="Left"></Image>
+                            <TextBlock FontFamily="Roboto Medium" Grid.Column="1" Text="Записи" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Left"></TextBlock>
+                        </Grid>
+                    </Button.Content>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#ebebeb"></Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Foreground" Value="Black"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="False">
+                                    <Setter Property="Foreground" Value="#666666"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button Name="btnServices" MouseEnter="btnServices_MouseEnter" MouseLeave="btnServices_MouseLeave"
+                        Margin="0,10,0,0"
+                        Click="btnServices_Click" Background="Transparent" BorderBrush="Transparent">
+                    <Button.Content>
+                        <Grid Height="auto" Width="190">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Name="imageService" Source="/Resources/MenuImages/barberScissorsInactive.png" Grid.Column="0" VerticalAlignment="Center" Width="30" HorizontalAlignment="Left"></Image>
+                            <TextBlock FontFamily="Roboto Medium" Grid.Column="1" Text="Услуги" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Left"></TextBlock>
+                        </Grid>
+                    </Button.Content>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#ebebeb"></Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Foreground" Value="Black"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="False">
+                                    <Setter Property="Foreground" Value="#666666"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button Name="btnClients" MouseEnter="btnClients_MouseEnter" MouseLeave="btnClients_MouseLeave"
+                        Margin="0,10,0,0"
+                        Click="btnClients_Click" Background="Transparent" BorderBrush="Transparent">
+                    <Button.Content>
+                        <Grid Height="auto" Width="190">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Name="imageClient" Source="/Resources/MenuImages/clientInactive.png" Grid.Column="0" VerticalAlignment="Center" Width="30" HorizontalAlignment="Left"></Image>
+                            <TextBlock FontFamily="Roboto Medium" Grid.Column="1" Text="Клиенты" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Left"></TextBlock>
+                        </Grid>
+                    </Button.Content>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#ebebeb"></Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Foreground" Value="Black"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="False">
+                                    <Setter Property="Foreground" Value="#666666"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button Name="btnEmployeers" MouseEnter="btnEmployeers_MouseEnter" MouseLeave="btnEmployeers_MouseLeave"
+                        Margin="0,10,0,0"
+                        Click="btnEmployeers_Click" Background="Transparent" BorderBrush="Transparent">
+                    <Button.Content>
+                        <Grid Height="auto" Width="190">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Name="imageEmployee" Source="/Resources/MenuImages/employeeInactive.png" Grid.Column="0" VerticalAlignment="Center" Width="30" HorizontalAlignment="Left"></Image>
+                            <TextBlock FontFamily="Roboto Medium" Grid.Column="1" Text="Сотрудники" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Left"></TextBlock>
+                        </Grid>
+                    </Button.Content>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#ebebeb"></Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Foreground" Value="Black"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="False">
+                                    <Setter Property="Foreground" Value="#666666"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button Name="btnReports" MouseEnter="btnReports_MouseEnter" MouseLeave="btnReports_MouseLeave"
+                        Margin="0,10,0,0"
+                        Click="btnReports_Click" Background="Transparent" BorderBrush="Transparent">
+                    <Button.Content>
+                        <Grid Height="auto" Width="190">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image Name="imageReport" Source="/Resources/MenuImages/reportInactive.png" Grid.Column="0" VerticalAlignment="Center" Width="28" HorizontalAlignment="Left"></Image>
+                            <TextBlock FontFamily="Roboto Medium" Grid.Column="1" Text="Отчеты" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Left"></TextBlock>
+                        </Grid>
+                    </Button.Content>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="#ebebeb"></Setter>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Foreground" Value="Black"></Setter>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="False">
+                                    <Setter Property="Foreground" Value="#666666"></Setter>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a08b102e16984620acdb518e5565c57d" Name="Diagram1">
+        <EntityTypeShape EntityType="BeautySalonBaseModel.AuthHistory" Width="1.5" PointX="10.25" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BeautySalonBaseModel.Category" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BeautySalonBaseModel.Client" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BeautySalonBaseModel.ClientService" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BeautySalonBaseModel.Employee" Width="1.5" PointX="0.75" PointY="18.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BeautySalonBaseModel.Gender" Width="1.5" PointX="1.5" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BeautySalonBaseModel.Role" Width="1.5" PointX="5.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BeautySalonBaseModel.Service" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BeautySalonBaseModel.ServiceCategory" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BeautySalonBaseModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BeautySalonBaseModel.User" Width="1.5" PointX="8" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="BeautySalonBaseModel.ClientServiceView" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="BeautySalonBaseModel.FK_AuthHistory_User" ManuallyRouted="false" />
+        <AssociationConnector Association="BeautySalonBaseModel.FK_ServiceCategory_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="BeautySalonBaseModel.FK_Client_Gender" ManuallyRouted="false" />
+        <AssociationConnector Association="BeautySalonBaseModel.FK_ClientService_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="BeautySalonBaseModel.FK_ClientService_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="BeautySalonBaseModel.FK_ClientService_Service" ManuallyRouted="false" />
+        <AssociationConnector Association="BeautySalonBaseModel.FK_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="BeautySalonBaseModel.FK_ServiceCategory_Service" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

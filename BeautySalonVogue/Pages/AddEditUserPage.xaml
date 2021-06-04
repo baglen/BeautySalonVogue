@@ -1,0 +1,53 @@
+﻿<Page x:Class="BeautySalonVogue.Pages.AddEditUserPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BeautySalonVogue.Pages"
+      mc:Ignorable="d" 
+      FontFamily="Roboto Light"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddEditUserPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.ColumnSpan="2"></Grid>
+        <TextBlock Grid.ColumnSpan="2" Text="Изменить/Добавить пользователя" FontSize="30" HorizontalAlignment="Center" Margin="4"></TextBlock>
+        <Grid Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition Height="45"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Имя" FontSize="20" Grid.Row="0"></TextBlock>
+            <TextBlock Text="Фамилия" FontSize="20" Grid.Row="1"></TextBlock>
+            <TextBlock Text="Логин" FontSize="20" Grid.Row="2"></TextBlock>
+            <TextBlock Text="Роль" FontSize="20" Grid.Row="3"></TextBlock>
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition Height="45"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBox x:Name="txtBoxFirtsName" Grid.Row="0" Text="{Binding FirstName}" MaxLength="50"></TextBox>
+            <TextBox x:Name="txtBoxLastName" Grid.Row="1" Text="{Binding LastName}" MaxLength="50"></TextBox>
+            <TextBox x:Name="txtBoxLogin" Grid.Row="2" Text="{Binding Login}" MaxLength="50"></TextBox>
+            <ComboBox x:Name="comboBoxRole" Grid.Row="3" Height="40" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" SelectedItem="{Binding Role}" DisplayMemberPath="Name"></ComboBox>
+        </Grid>
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Width="auto" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Content="Сохранить" Name="btnSave" Click="btnSave_Click"></Button>
+            <Button Content="Сбросить пароль" Name="btnDropPassword" Click="btnDropPassword_Click" Margin="10,0,0,0"></Button>
+        </StackPanel>   
+    </Grid>
+</Page>

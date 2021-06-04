@@ -1,0 +1,55 @@
+﻿<Page x:Class="BeautySalonVogue.Pages.AddEditRecordPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BeautySalonVogue.Pages"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      xmlns:System="clr-namespace:System;assembly=mscorlib"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddEditRecordPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.ColumnSpan="2"></Grid>
+        <TextBlock Grid.ColumnSpan="2" Text="Изменить/Добавить запись" FontSize="30" HorizontalAlignment="Center" Margin="4"></TextBlock>
+        <Grid Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition Height="45"></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Клиент" FontSize="20" Grid.Row="0"></TextBlock>
+            <TextBlock Text="Услуга" FontSize="20" Grid.Row="1"></TextBlock>
+            <TextBlock Text="Сотрудник" FontSize="20" Grid.Row="2"></TextBlock>
+            <TextBlock Text="Дата" FontSize="20" Grid.Row="3"></TextBlock>
+            
+        </Grid>
+        <Grid Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition Height="45"></RowDefinition>
+            </Grid.RowDefinitions>
+            <ComboBox Name="comboBoxClient" Grid.Row="0" Height="40" VerticalContentAlignment="Center" IsEditable="true" HorizontalContentAlignment="Center"></ComboBox>
+            <ComboBox Name="comboBoxService" Grid.Row="1" Height="40" SelectedItem="{Binding Service}" IsEditable="True" VerticalContentAlignment="Center" 
+                      HorizontalContentAlignment="Center"  DisplayMemberPath="Name" SelectionChanged="comboBoxService_SelectionChanged"></ComboBox>
+            <ComboBox Name="comboBoxEmployee" Grid.Row="2" Height="40"  IsEditable="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"></ComboBox>
+            <xctk:DateTimePicker Height="40" Name="datePickerDate" Width="175" MaxWidth="175" Grid.Row="3" Value="{Binding Date}" Minimum="{x:Static sys:DateTime.Now}">
+            </xctk:DateTimePicker>
+        </Grid>
+        <Button Content="Сохранить" Name="btnSave" Click="btnSave_Click" Grid.Row="2" HorizontalAlignment="Center" Grid.ColumnSpan="2"></Button>
+    </Grid>
+</Page>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeautySalonVogue", "BeautySalonVogue\BeautySalonVogue.csproj", "{9F2D1130-9A54-4669-A7D4-75CBB1E0F051}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{C230E6E7-EB7C-4125-88D1-9BE6888F835A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F2D1130-9A54-4669-A7D4-75CBB1E0F051}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F2D1130-9A54-4669-A7D4-75CBB1E0F051}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F2D1130-9A54-4669-A7D4-75CBB1E0F051}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F2D1130-9A54-4669-A7D4-75CBB1E0F051}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C230E6E7-EB7C-4125-88D1-9BE6888F835A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C230E6E7-EB7C-4125-88D1-9BE6888F835A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C230E6E7-EB7C-4125-88D1-9BE6888F835A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C230E6E7-EB7C-4125-88D1-9BE6888F835A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {65C3CA87-89A3-4731-9318-530556DCFCDD}
+	EndGlobalSection
+EndGlobal

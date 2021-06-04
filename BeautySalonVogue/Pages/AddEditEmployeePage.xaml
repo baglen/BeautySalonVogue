@@ -1,0 +1,63 @@
+﻿<Page x:Class="BeautySalonVogue.Pages.AddEditEmployeePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BeautySalonVogue.Pages"
+      mc:Ignorable="d" 
+      FontFamily="Roboto Light"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddEditEmployeePage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="0" Grid.ColumnSpan="2"></Grid>
+        <TextBlock Grid.ColumnSpan="2" Text="Изменить/Добавить сотрудника" FontSize="30" HorizontalAlignment="Center" Margin="4"></TextBlock>
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition Height="45"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="140"></ColumnDefinition>
+                <ColumnDefinition Width="190"></ColumnDefinition>
+                <ColumnDefinition Width="140"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Имя" FontSize="20" Grid.Row="0" VerticalAlignment="Center"></TextBlock>
+            <TextBlock Text="Фамилия" FontSize="20" Grid.Row="1" VerticalAlignment="Center"></TextBlock>
+            <TextBlock Text="Отчество" FontSize="20" Grid.Row="2" VerticalAlignment="Center"></TextBlock>
+            <TextBlock Text="Должность" FontSize="20" Grid.Row="3" VerticalAlignment="Center"></TextBlock>
+            <TextBox x:Name="txtBoxFirtsName" Grid.Row="0" Grid.Column="1" Text="{Binding FirstName}" MaxLength="50"></TextBox>
+            <TextBox x:Name="txtBoxLastName" Grid.Row="1" Grid.Column="1" Text="{Binding LastName}" MaxLength="50"></TextBox>
+            <TextBox x:Name="txtBoxPatronymic" Grid.Row="2" Grid.Column="1" Text="{Binding Patronymic}" MaxLength="50"></TextBox>
+            <ComboBox x:Name="comboBoxPost"  Grid.Column="1" Grid.Row="3" Height="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center"></ComboBox>
+            <Border CornerRadius="20" Height="128" Width="128" Grid.Column="2" Grid.RowSpan="3" HorizontalAlignment="Center" Margin="0,5,0,0">
+                <Border.Background>
+                    <ImageBrush x:Name="employeePhoto" Stretch="Fill" ImageSource="{Binding Path=PhotoPath, TargetNullValue='pack://application:,,,/Resources/MenuImages/defaultEmployee.png'}"/>
+                </Border.Background>
+            </Border>
+            <Button Grid.Row="3" Grid.Column="2" Content="Вырать фото" Name="btnPhoto" Click="btnPhoto_Click"/>
+        </Grid>
+        <Grid Grid.Column="1" Height="180" Grid.Row="1" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="128*"></RowDefinition>
+                <RowDefinition Height="45"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+        </Grid>
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Width="auto" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Button Content="Сохранить" Name="btnSave" Click="btnSave_Click"></Button>
+            <Button Content="Удалить" Name="btnDeleteEmployee" Click="btnDeleteEmployee_Click" Margin="10,0,0,0"></Button>
+        </StackPanel>
+    </Grid>
+</Page>

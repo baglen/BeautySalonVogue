@@ -1,0 +1,73 @@
+﻿<Page x:Class="BeautySalonVogue.Pages.ClientsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BeautySalonVogue.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      FontFamily="Roboto Light"
+      IsVisibleChanged="Page_IsVisibleChanged"
+      Title="ClientsPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Text="Клиенты" Margin="4" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30"></TextBlock>
+            <ToggleButton Margin="5,0,0,0" BorderThickness="0" Width="30" Height="30" HorizontalAlignment="Center" Name="btnSearch">
+                <ToggleButton.Style>
+                    <Style TargetType="ToggleButton">
+                        <Setter Property="Background" Value="#ebebeb"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                                    <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#f7f7f7"></Setter>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ToggleButton.Style>
+                <StackPanel>
+                    <Image Source="/Resources/MenuImages/search.png" Margin="5"></Image>
+                    <Popup IsOpen="{Binding IsChecked, ElementName=btnSearch}" StaysOpen="False" AllowsTransparency="True" Placement="Right" Style="{StaticResource searchPopupStyle}">
+                        <TextBox Name="txtBoxSearch" TextChanged="txtBoxSearch_TextChanged"></TextBox>
+                    </Popup>
+                </StackPanel>
+            </ToggleButton>
+        </StackPanel>
+        <Button Grid.Row="2" Content="Добавить" Name="btnAddClient" Click="btnAddClient_Click" HorizontalAlignment="Left" Margin="5"></Button>
+        <Button Grid.Row="2" Content="Удалить" Name="btnDeleteClient" Click="btnDeleteClient_Click" HorizontalAlignment="Right" Margin="5"></Button>
+        <DataGrid Grid.Row="1" Name="DGridClients" AutoGenerateColumns="False" IsReadOnly="True" RowHeaderWidth="0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Имя" Binding="{Binding FirstName}" Width="80*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding LastName}" Width="80*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}" Width="80*"></DataGridTextColumn>
+                <DataGridTextColumn Header="День рожд." Binding="{Binding Birthday, StringFormat=dd.MM.yyyy}" Width="80"></DataGridTextColumn>
+                <DataGridTextColumn Header="Дата рег." Binding="{Binding RegistrationDate, StringFormat=dd.MM.yyyy}" Width="80"></DataGridTextColumn>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="80*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Телефон" Binding="{Binding Phone}" Width="80*"></DataGridTextColumn>
+                <DataGridTemplateColumn Width="40">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="btnEdit" Click="btnEdit_Click" Width="35">
+                                <Image Source="/Resources/MenuImages/edit.png" Width="30"></Image>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Name="lblNothingFound" Content="По данному запросу не найдено записей" Visibility="Collapsed" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Panel.ZIndex="1"></Label>
+    </Grid>
+</Page>
