@@ -38,7 +38,7 @@ namespace BeautySalonVogue
                 bool loginStatus = false;
                 AuthHistory loginHistory = new AuthHistory();
                 User currentUser = null;
-                try
+                if(BeautySalonBaseEntities.getContext().User.Where(p => p.Login == txtBoxLogin.Text).Count() != 0)
                 {
                     currentUser = BeautySalonBaseEntities.getContext().User.Where(p => p.Login == txtBoxLogin.Text).First();
                     var result = BeautySalonBaseEntities.getContext().User.ToList().Select(p => p).Where(p => p.Login == txtBoxLogin.Text && (p.Password == txtBoxPassword.Text || p.Password == txtBoxPassword.Text));
@@ -65,7 +65,7 @@ namespace BeautySalonVogue
                         }
                     }
                 }
-                catch
+                else
                 {
                     MessageBox.Show("Неверный логин!", "Авторизация", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
